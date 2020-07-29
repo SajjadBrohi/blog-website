@@ -1,5 +1,14 @@
 <%- include('header') -%>
 
-<h1>Test</h1>
+<h1>Compose</h1>
+<form id="compose-form" action="/" method="post">
+  <h3>Title</h3>
+  <input class="form-control" type="text" name="title">
+  <h3>Post</h3>
+  <textarea class="form-control" name="post" cols="30" rows="10"></textarea>
+
+
+  <button class="btn btn-lg btn-primary" type="submit">Publish</button>
+</form>
 
 <%- include('footer') -%>
