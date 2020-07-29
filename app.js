@@ -11,24 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
-const blogPostRoutes = () => {
-	allTheBlogs.forEach((blog) => {
-		const blogURI = "/posts/" + encodeURI(blog.title);
-		const blugDirectURL = "/posts/" + blog.title.toLowerCase().split(' ').join('-');
-
-		app.get(blogURI, (req, res) => {
-			res.render('post', { title: blog.title, post: blog.post })
-		});
-
-		app.get(blugDirectURL, (req, res) => {
-			res.render('post', { title: blog.title, post: blog.post })
-		});
-	});
-}
-
-
 app.get('/', (req, res) => {
-	blogPostRoutes();
 	res.render('home', { description: content.homeStartingContent(), allTheBlogs: allTheBlogs });
 });
 
@@ -44,6 +27,15 @@ app.get('/compose', (req, res) => {
 	res.render('compose');
 });
 
+app.get('/posts/:blog', (req, res) => {
+	allTheBlogs.forEach((blog) => {
+		if (req.params.blog.toLowerCase().split(' ').join('-')
+			=== blog.title.toLowerCase().split(' ').join('-')) {
+			res.render('post', { title: blog.title, post: blog.post });
+		}
+	})
+})
+
 app.post('/', (req, res) => {
 	const composedBlog = {
 		title: req.body.title,
@@ -54,4 +46,4 @@ app.post('/', (req, res) => {
 	res.redirect('/');
 })
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+app.listen(process.env.PORT || 3000, () => console.log('Server started on port 3000'));

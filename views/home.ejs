@@ -1,11 +1,10 @@
-<%- include('header') -%>
+<%- include('partials/header') -%>
 
 <h1>Home</h1>
 
 <p><%= description %></p>
 
 <% allTheBlogs.forEach((blog) => { %>
-<% const blogURI = "/posts/" + encodeURI(blog.title); %>
 
 <h2><%= blog.title %></h2>
 
@@ -14,9 +13,9 @@
 
 <%} else { %>
 <p><%= blog.post.substring(0,100) %>...
-  <a href=<%= blogURI %>> Read More</a>
+  <a href="/posts/<%= blog.title %>"> Read More</a>
 </p>
 <%  }}); %>
 
 
-<%- include('footer') -%>
+<%- include('partials/footer') -%>
