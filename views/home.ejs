@@ -4,4 +4,19 @@
 
 <p><%= description %></p>
 
+<% allTheBlogs.forEach((blog) => { %>
+<% const blogURI = "/posts/" + encodeURI(blog.title); %>
+
+<h2><%= blog.title %></h2>
+
+<%if (blog.post.length < 100) { %>
+<p><%= blog.post %></p>
+
+<%} else { %>
+<p><%= blog.post.substring(0,100) %>...
+  <a href=<%= blogURI %>> Read More</a>
+</p>
+<%  }}); %>
+
+
 <%- include('footer') -%>
