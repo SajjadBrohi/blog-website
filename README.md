@@ -1,5 +1,9 @@
 # blog-website
 
+## Deployed to Heroku
+
+https://brohi-blog-site.herokuapp.com/
+
 ## Uses
 
 1. NodeJS
