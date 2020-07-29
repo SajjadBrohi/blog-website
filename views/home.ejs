@@ -12,10 +12,8 @@
 <p><%= blog.post %></p>
 
 <%} else { %>
-<p><%= blog.post.substring(0,100) %>...
-  <a href="/posts/<%= blog.title %>"> Read More</a>
+<p>
+	<%= blog.post.substring(0,100) %>...
+	<a href="/posts/<%= blog.title %>"> Read More</a>
 </p>
-<%  }}); %>
-
-
-<%- include('partials/footer') -%>
+<% }}); %> <%- include('partials/footer') -%>
