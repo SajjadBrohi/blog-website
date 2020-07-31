@@ -1,5 +1,7 @@
 # blog-website
 
+A simple blogging website.
+
 ## Deployed to Heroku
 
 https://brohi-blog-site.herokuapp.com/
