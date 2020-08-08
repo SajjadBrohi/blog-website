@@ -1,17 +1,17 @@
 # blog-website
 
-A simple blogging website.
-
-## Deployed to Heroku
+A simple blogging website. Deployed to Heroku, and connected to database at MongoDB Atlas:
 
 https://brohi-blog-site.herokuapp.com/
 
 ## Uses
 
-1. NodeJS
+1. Node.js
 
-2. ExpressJS
+2. Express.js
 
-3. EJS
+3. MongoDB (Mongoose & Atlas)
 
-4. Bootstrap
+4. Embedded JavaScript (EJS)
+
+5. Bootstrap
