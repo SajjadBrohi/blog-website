@@ -3,15 +3,13 @@ const express = require('express');
 const ejs = require('ejs');
 const content = require(__dirname + '/content.js');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
-mongoose.connect(
-	'mongodb+srv://admin-sajjad:Test123@cluster0.xufq3.mongodb.net/blogpostDB?retryWrites=true&w=majority',
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	},
-);
+mongoose.connect(process.env.MONGODB_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 
 // Setting up Post Model
 const postsSchema = new mongoose.Schema({
