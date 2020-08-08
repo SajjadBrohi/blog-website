@@ -5,10 +5,13 @@ const content = require(__dirname + '/content.js');
 const mongoose = require('mongoose');
 
 const app = express();
-mongoose.connect('mongodb://localhost/blogDB', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+mongoose.connect(
+	'mongodb+srv://admin-sajjad:Test123@cluster0.xufq3.mongodb.net/blogpostDB?retryWrites=true&w=majority',
+	{
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	},
+);
 
 // Setting up Post Model
 const postsSchema = new mongoose.Schema({
