@@ -53,17 +53,13 @@ app.get('/compose', (req, res) => {
 	res.render('compose');
 });
 
-// Processing request to any '/posts/:blog' route
-app.get('/posts/:blog', (req, res) => {
-	Post.find((err, posts) => {
+// Processing request to any '/posts/:blogID' route
+app.get('/posts/:blogID', (req, res) => {
+	Post.findById(req.params.blogID, (err, blog) => {
 		if (err) {
-			console.log('Error in finding documents.');
+			console.log(err);
 		} else {
-			posts.forEach((blog) => {
-				if (req.params.blog == blog._id) {
-					res.render('post', { title: blog.title, post: blog.post });
-				}
-			});
+			res.render('post', { title: blog.title, post: blog.post });
 		}
 	});
 });
@@ -75,8 +71,11 @@ app.post('/', (req, res) => {
 		post: req.body.post,
 	});
 
-	composedBlog.save();
-	res.redirect('/');
+	composedBlog.save((err) => {
+		if (!err) {
+			res.redirect('/');
+		}
+	});
 });
 
 // Listening to the PORT environment variable of Heroku and the port 3000 for localhost
