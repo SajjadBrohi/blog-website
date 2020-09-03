@@ -1,4 +1,4 @@
-# blog-website
+# Blog Website
 
 A simple blogging website. Deployed to Heroku, and connected to database at MongoDB Atlas:
 
